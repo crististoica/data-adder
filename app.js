@@ -30,9 +30,9 @@ app.post("/adauga-date", (req, res) => {
     correctAnswer: req.body.correct_answer,
   };
 
-  fs.readFile("test.json", (err, data) => {
+  fs.readFile("data.json", (err, data) => {
     if (err && err.code === "ENOENT") {
-      return fs.writeFile("test.json", JSON.stringify([blob]), (error) => {
+      fs.writeFile("data.json", JSON.stringify([blob]), (error) => {
         console.log(error);
       });
     } else if (err) {
@@ -41,7 +41,7 @@ app.post("/adauga-date", (req, res) => {
       try {
         const fileData = JSON.parse(data);
         fileData.push(blob);
-        fs.writeFile("dat.json", JSON.stringify(fileData, null, 2), (error) =>
+        fs.writeFile("data.json", JSON.stringify(fileData, null, 2), (error) =>
           console.log(error)
         );
       } catch (exception) {
@@ -53,5 +53,5 @@ app.post("/adauga-date", (req, res) => {
 });
 
 app.listen(3000, () => {
-  console.log("Server Up! ❤️  ❤️  ❤️  ❤️  ❤️  ❤️  ❤️");
+  console.log("Server Up! 💓  💓  💓  💓  💓  💓  💓");
 });
